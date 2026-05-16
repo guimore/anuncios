@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guido Hub | Proyectos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f1f5f9; }
+        .card { background-color: #1e293b; border: 1px solid #334155; color: white; border-radius: 12px; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); border-color: #38bdf8; }
+        .btn-primary { background-color: #38bdf8; border: none; font-weight: bold; }
+        .navbar { background-color: #1e293b; border-bottom: 2px solid #38bdf8; }
+        .status-badge { font-size: 0.8rem; padding: 4px 8px; border-radius: 20px; background: #0ea5e9; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand font-bold" href="#"><i class="bi bi-shield-lock-fill me-2"></i>GUIDO-HUB</a>
+            <span class="status-badge">Node: Worker .101</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mb-5 text-center">
+            <div class="col-12">
+                <h1 class="display-4 fw-bold text-info">Mis Proyectos</h1>
+                <p class="text-secondary">Analista de Sistemas | Lab de Desarrollo</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-12">
+                <div class="card p-4">
+                    <div class="d-flex justify-content-between">
+                        <i class="bi bi-qr-code-scan display-6 text-info"></i>
+                        <span class="badge bg-success">Port: 5001</span>
+                    </div>
+                    <h3 class="mt-3">Tienda Fast-Pass</h3>
+                    <p class="text-secondary small">Generación de UUID y Tickets QR en PDF para validación en local.</p>
+                    <button class="btn btn-outline-info w-25">Abrir Tienda →</button>
+                </div>
+            </div>
+
+            <hr class="my-5 border-secondary">
+
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="text-warning"><i class="bi bi-newspaper me-2"></i>Daily Thoughts</h2>
+                    <a href="/nuevo" class="btn btn-primary btn-sm">+ Nuevo Post</a>
+                </div>
+                
+                <div class="row g-4">
+                    {% for post in noticias %}
+                    <div class="col-md-4">
+                        <div class="card h-100 p-3">
+                            <h4 class="h5 fw-bold text-white">{{ post.titulo }}</h4>
+                            <p class="text-secondary small">{{ post.contenido[:100] }}...</p>
+                            <div class="mt-auto d-flex justify-content-between">
+                                <span class="text-muted small">Vistas: {{ post.vistas }}</span>
+                                <a href="/post/{{ post.id }}" class="btn btn-sm btn-outline-warning">Leer</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

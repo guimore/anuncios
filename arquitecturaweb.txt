@@ -1,0 +1,5 @@
+/home/guido/proyectos/diario_noticias/
+├── app.py                <-- El cerebro en Python
+├── database_blog.db      <-- Donde se guardan tus noticias físicas
+└── templates/
+    └── index.html        <-- TU ARCHIVO (El que me pasaste recién)
